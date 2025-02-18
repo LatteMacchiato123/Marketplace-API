@@ -43,8 +43,8 @@ class AuthService {
         });
     }
     updateUser(req) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             const { first_name, last_name } = req.body;
             const id = Number((_a = req.user) === null || _a === void 0 ? void 0 : _a.id);
             const data = {};
@@ -62,8 +62,8 @@ class AuthService {
         });
     }
     uploadAvatar(req) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             const id = Number((_a = req.user) === null || _a === void 0 ? void 0 : _a.id);
             const { file } = req;
             if (!file)
@@ -80,8 +80,8 @@ class AuthService {
         });
     }
     refreshToken(req) {
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a, _b;
             if (!((_a = req.user) === null || _a === void 0 ? void 0 : _a.email))
                 throw new response_handler_1.ErrorHandler("invalid token");
             return yield (0, token_1.generateAuthToken)(undefined, (_b = req.user) === null || _b === void 0 ? void 0 : _b.email);

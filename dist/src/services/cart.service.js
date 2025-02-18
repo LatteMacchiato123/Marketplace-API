@@ -13,8 +13,8 @@ const config_1 = require("../config");
 const response_handler_1 = require("../helpers/response.handler");
 class CartService {
     addToCart(req) {
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a, _b;
             const { product_id } = req.body;
             const checkIfProductExist = yield config_1.prisma.cart.findFirst({
                 where: {
@@ -42,8 +42,8 @@ class CartService {
         });
     }
     getUserCart(req) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             return yield config_1.prisma.cart.findMany({
                 select: {
                     Product: {
@@ -63,8 +63,8 @@ class CartService {
         });
     }
     deleteCart(req) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             return yield config_1.prisma.cart.delete({
                 where: {
                     productId_userId: {
@@ -135,8 +135,8 @@ class CartService {
         });
     }
     updatePaymentStatus(req) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             const res = yield fetch(`https://api.sandbox.midtrans.com/v2/${req.params.no_inv}/status`, {
                 headers: {
                     Authorization: "Basic " +
